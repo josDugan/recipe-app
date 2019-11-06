@@ -56,6 +56,21 @@ public class Recipe {
         return this;
     }
 
+    public Recipe removeIngredient(Ingredient ingredient) {
+        ingredient.setRecipe(null);
+        getIngredients().remove(ingredient);
+        return this;
+    }
+
+    public Recipe removeIngredient(Long id) {
+        Ingredient retrievedIngredient = getIngredients().stream()
+                .filter(ingredient -> ingredient.getId().equals(id))
+                .findFirst()
+                .get();
+        removeIngredient(retrievedIngredient);
+        return this;
+    }
+
     public void setNotes(Notes notes) {
         this.notes = notes;
         if (notes != null) {
