@@ -86,4 +86,5 @@ public class RecipeServiceImplTest {
 
         Recipe recipeReturned = recipeService.findById(1L);
     }
+
 }
